@@ -17,5 +17,7 @@ typedef struct{
     void (*usart_write)(uint8_t v);
 }Usart;
 
+void usart_init(Usart *u);
+
 #endif
 
