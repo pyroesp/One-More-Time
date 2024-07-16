@@ -20,24 +20,24 @@ I've also added a hold state and a hold super speed state. (These would trigger 
 You can use the buttons independently or in combination.  
 
 # Modes
-## Change alarm 
+### Change alarm 
 Long press the alarm button to enter the change alarm mode.  
 In this mode, use the hour button to increase the hour and use the minute button to increase the minute.  
 Use the alarm button to turn on or off the alarm, indicated by the dot on the VFD.
 Lastly, use the snooze button to change the alarm weekday.
 
-## Change hour
+### Change hour
 Long press the hour button to enter the change hour mode.  
 In this mode, use the hour button to change the hours of the clock.  
 
-## Change minute
+### Change minute
 Same as change hour but with the minute button.  
 
-## Change day of week
+### Change day of week
 Long press the snooze button to enter the change day of week mode.  
 Use short presses to change the weekday so that the alarms are applied to the correct day of the week.  
 
-## Exit modes
+### Exit modes
 To exit any mode, release all buttons and wait for the timeout to return to the clock display.  
 
 # Testing on windows
