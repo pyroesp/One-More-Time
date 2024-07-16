@@ -21,6 +21,13 @@ void clock_init(Clock *c){
     c->change_mode_time = 0;
     c->blink = CLOCK_BLINK_ON;
     c->blink_time = 0;
+    
+    c->mp3.com.usart_flush_rx = 0;
+    c->mp3.com.usart_check_rx_overflow = 0;
+    c->mp3.com.usart_check_rx_complete = 0;
+    c->mp3.com.usart_check_tx_complete = 0;
+    c->mp3.com.usart_write = 0;
+    
     return;
 }
 

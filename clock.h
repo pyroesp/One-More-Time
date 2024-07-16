@@ -12,6 +12,7 @@
 #include "alarm.h"
 #include "button.h"
 #include "VFD.h"
+#include "mp3.h"
 
 // Clock mode change exit timeout
 #define CLOCK_EXIT_CHANGE_MODE_TIME 4000    // ms
@@ -55,6 +56,8 @@ typedef struct{
 
     Clock_Blink blink;                  // Blink state
     uint16_t blink_time;                // Blink timeout
+    
+    Mp3 mp3;                            // mp3 usart for alarms
 }Clock;
 
 // Clock init
