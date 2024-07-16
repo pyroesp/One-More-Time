@@ -9,8 +9,8 @@ When the alarm goes off it should play an MP3 from a mini MP3 payer module.
 There are 7 alarms that can be configured independently, for each day of the week.  
 
 # VFD driver
-![driver](/img/vfd_driver.jpg)  
-![display](/img/vfd_disp_0.jpg)  
+<img src="https://github.com/pyroesp/One-More-Time/raw/main/img/vfd_driver.jpg" width="300"/>  
+<img src="https://github.com/pyroesp/One-More-Time/raw/main/img/vfd_disp_0.jpg" width="300"/>  
 
 # Buttons
 The available buttons are: alarm, hour, minute and snooze.  
