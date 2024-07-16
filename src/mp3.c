@@ -14,7 +14,7 @@ void mp3_init(Mp3 *m){
         m->frame[i] = 0;
     }
     m->frame_idx = 0;
-    
+
     m->start = MP3_FRAME_START;
     m->version = MP3_FRAME_VERSION;
     m->length = MP3_FRAME_LENGTH;
@@ -27,15 +27,15 @@ void mp3_update(Mp3 *m){
     switch (m->status){
         case MP3_PLAY:
             mp3_play_cmd(m);
-            m->status = MP3_CHECKSUM:
+            m->status = MP3_CHECKSUM;
             break;
         case MP3_PAUSE:
             mp3_pause_cmd(m);
-            m->status = MP3_CHECKSUM:
+            m->status = MP3_CHECKSUM;
             break;
         case MP3_STOP:
             mp3_stop_cmd(m);
-            m->status = MP3_CHECKSUM:
+            m->status = MP3_CHECKSUM;
             break;
         case MP3_CHECKSUM:
             mp3_checksum(m);
@@ -105,6 +105,6 @@ void mp3_stop_cmd(Mp3 *m){
 }
 
 void mp3_checksum(Mp3 *m){
-    m.chksm = 0xFFFF - (m.version + m.length + m.cmd + m.feedback + m.param_hi + m.param_lo) + 1;
+    m->chksm = 0xFFFF - (m->version + m->length + m->cmd + m->feedback + m->param_hi + m->param_lo) + 1;
     return;
 }

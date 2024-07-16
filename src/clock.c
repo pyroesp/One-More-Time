@@ -15,14 +15,13 @@ void clock_init(Clock *c){
     vfd_init(&c->vfd);
     button_init(c->buttons, BUTTON_SIZE);
     button_init(c->prev_buttons, BUTTON_SIZE);
-    io_init(0, 0, 0, 0, 0);
 
     c->mode = CLOCK_MODE_TIME;
     c->change_mode_time = 0;
     c->blink = CLOCK_BLINK_ON;
     c->blink_time = 0;
-    
-    mp3_init(&c->mp3);    
+
+    mp3_init(&c->mp3);
     return;
 }
 
@@ -120,7 +119,7 @@ void clock_mode(Clock *c, uint16_t ms){ // execution of different modes
             vfd_set_alarm(&c->vfd, &c->alarms[c->alarm_index].t,                // show change alarm mode
                     c->alarm_index + 1, c->alarms[c->alarm_index].enabled);
 
-            
+
             if (c->buttons[BUTTON_ALARM].status == BUTTON_RELEASED              // toggle alarm on and off with short press and release
                     && c->prev_buttons[BUTTON_ALARM].status == BUTTON_SHORT_PRESS){
                 if (c->alarms[c->alarm_index].enabled == ALARM_OFF){
@@ -146,7 +145,7 @@ void clock_mode(Clock *c, uint16_t ms){ // execution of different modes
             // display "do X  "
             vfd_set_day_of_week(&c->vfd, c->date.day_of_week + 1);              // show change day of week mode
 
-            
+
             if (c->buttons[BUTTON_SNOOZE].status == BUTTON_RELEASED             // change day of week with snooze short press and release
                     && c->prev_buttons[BUTTON_SNOOZE].status == BUTTON_SHORT_PRESS){
                 c->date.day_of_week++;

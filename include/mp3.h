@@ -50,7 +50,7 @@ typedef enum{
 typedef struct{
     Mp3_State status;                   // MP3 status
     Usart com;                          // USART coms
-    
+
     uint8_t frame_idx;
     union{                              // #TODO: Check endianness
         uint8_t frame[MP3_FRAME_SIZE];  // full frame of mp3 player
@@ -65,14 +65,14 @@ typedef struct{
                 struct{
                     uint8_t param_hi;
                     uint8_t param_lo;
-                }
+                };
             };
             union{
                 uint16_t chksm;
                 struct{
                     uint8_t chksm_hi;
                     uint8_t chksm_lo;
-                }
+                };
             };
             uint8_t stop;
         };
@@ -83,11 +83,13 @@ typedef struct{
 void mp3_init(Mp3 *m);
 // MP3 update
 void mp3_update(Mp3 *m);
+// MP3 send frame
+void mp3_send_frame(Mp3 *m);
 
 // MP3 set status
-void mp3_set_status_play(void);
-void mp3_set_status_pause(void);
-void mp3_set_status_stop(void);
+void mp3_set_status_play(Mp3 *m);
+void mp3_set_status_pause(Mp3 *m);
+void mp3_set_status_stop(Mp3 *m);
 
 // #TODO select song command
 // #TODO select random song command
