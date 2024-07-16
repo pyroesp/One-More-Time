@@ -22,12 +22,7 @@ void clock_init(Clock *c){
     c->blink = CLOCK_BLINK_ON;
     c->blink_time = 0;
     
-    c->mp3.com.usart_flush_rx = 0;
-    c->mp3.com.usart_check_rx_overflow = 0;
-    c->mp3.com.usart_check_rx_complete = 0;
-    c->mp3.com.usart_check_tx_complete = 0;
-    c->mp3.com.usart_write = 0;
-    
+    mp3_init(&c->mp3);    
     return;
 }
 
@@ -92,7 +87,7 @@ void clock_mode(Clock *c, uint16_t ms){ // execution of different modes
             alarm_update(&c->alarms[c->date.day_of_week], &c->time, ms,         // check alarm of the day
                 c->buttons[BUTTON_SNOOZE].status == BUTTON_SHORT_PRESS,         // boolean calc for snoozed
                 c->buttons[BUTTON_ALARM].status == BUTTON_LONG_PRESS);          // boolean calc for alarm off
-            alarm_audio(&c->alarms[c->date.day_of_week]);                       // play/pause/stop alarm
+            alarm_audio(&c->alarms[c->date.day_of_week], &c->mp3);              // play/pause/stop alarm
             break;
         case CLOCK_MODE_CHANGE_HOUR:                                            // change hour
             // display "HHMMSS"
