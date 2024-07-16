@@ -8,6 +8,7 @@
 
 #include <stdint.h>
 #include "time.h"
+#include "mp3.h"
 
 #define ALARM_SNOOZE_TIMEOUT 300 // in seconds
 #define ALARM_OFF 0
@@ -32,6 +33,8 @@ typedef struct{
     uint16_t snooze_time_s;     // snooze time in s
     uint16_t snooze_time_ms;    // snooze time in ms
     Alarm_State status;         // alarm state
+    
+    Mp3 mp3;
 }Alarm;
 
 // Alarm struct init
@@ -39,7 +42,7 @@ void alarm_init(Alarm *a, uint8_t size);
 // Alarm update
 void alarm_update(Alarm *a, Time *t, uint16_t ms, uint8_t snoozed, uint8_t alarm_off);
 // Alarm play/pause/stop audio
-void alarm_audio(Alarm *a);
+void alarm_audio(Alarm *a, Mp3 *m);
 
 #endif
 

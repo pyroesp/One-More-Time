@@ -77,16 +77,17 @@ void alarm_update(Alarm *a, Time *t, uint16_t ms, uint8_t snoozed, uint8_t alarm
     return;
 }
 
-void alarm_audio(Alarm *a){     // Play audio function
+void alarm_audio(Alarm *a, Mp3 *m){     // Play audio function
     switch(a->status){
-        case ALARM_ACTIVE:                                  // if alarm status is active
-            // TODO: MP3 play music (on repeat?)            // start audio
+        case ALARM_ACTIVE:              // if alarm status is active
+            mp3_set_status_play(m);     // start audio
             break;
-        case ALARM_SNOOZED:                                 // if alarm status is snoozed
-            // TODO: MP3 pause                              // pause audio
+        case ALARM_SNOOZED:             // if alarm status is snoozed
+            // TODO: MP3 pause      
+            mp3_set_status_pause(m);    // pause audio
             break;
-        case ALARM_STATE_OFF:                               // if alarm off
-            // TODO: MP3 stop                               // stop audio
+        case ALARM_STATE_OFF:           // if alarm off
+            mp3_set_status_stop(m);     // stop audio
             break;
         default:
             break;
