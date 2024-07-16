@@ -1,10 +1,10 @@
 #include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include <windows.h>
 
-#include "clock.h"
+#include "../include/clock.h"
 
 
 void printRow(uint8_t v, uint8_t row);
@@ -34,9 +34,10 @@ int main(int argc, char* argv[]){
     vfd_set_io(&c.vfd.grid, (uint8_t*)&segment_out, 0xFC, 2); // PA2~PA7
     vfd_set_io(&c.vfd.segment, (uint8_t*)&grid_out, 0xFF, 0); // PD0~PD7
 
+    // time stuff
     time_t t;
-    time(&t);
-    struct tm *lt = localtime(&t);
+    time((time_t*)&t);
+    struct tm *lt = (struct tm*)localtime((const time_t*)&t);
 
     c.time.hour = lt->tm_hour;
     c.time.minute = lt->tm_min;
@@ -120,7 +121,6 @@ int main(int argc, char* argv[]){
 }
 
 
-#ifdef __WIN32
 void printRow(uint8_t v, uint8_t row){
     switch(row){
         case 0: // A
@@ -215,4 +215,3 @@ void cursor_reset(void){
     SetConsoleCursorPosition(hStdOut, homeCoords);
     return;
 }
-#endif
