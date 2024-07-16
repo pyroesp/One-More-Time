@@ -44,6 +44,10 @@ To exit any mode, release all buttons and wait for the timeout to return to the 
 Due to how this was programmed, the clock code can be tested on windows.  
 See the windows folder for a main file where you can test the different features with A, Z, E and R keys.  
 
+For all files, except the windows main file, you'll need to add the local include folder to the compiler search directories with the -I option.  
+Do not add it to the windows main or it will throw an error on the time stuff.  
+I think <time.h> and "time.h" are conflicting with each other.  
+
 # Audio
 The alarm is a cheap mp3 player module with a 2W speaker.  
 You can find them on aliexpress.  
