@@ -1,5 +1,5 @@
 # One-More-Time
-One More Time is a VFD clock with six IV-22 displays.
+One More Time is a VFD clock with six IV-22 displays.  
 Based of an ATmega4808, an MP3 player module, and optionally an ESP32.  
 
 # Features
@@ -16,15 +16,15 @@ There are 7 alarms that can be configured independently, for each day of the wee
 The available buttons are: alarm, hour, minute and snooze.  
 Long press is used to enter a mode. Short presses are used to change the value.  
 
-I've also added a hold state and a hold super speed state. (These would trigger short presses.)
+I've also added a hold state and a hold super speed state. (These would trigger short presses.)  
 You can use the buttons independently or in combination.  
 
 # Modes
 ### Change alarm 
 Long press the alarm button to enter the change alarm mode.  
 In this mode, use the hour button to increase the hour and use the minute button to increase the minute.  
-Use the alarm button to turn on or off the alarm, indicated by the dot on the VFD.
-Lastly, use the snooze button to change the alarm weekday.
+Use the alarm button to turn on or off the alarm, indicated by the dot on the VFD.  
+Lastly, use the snooze button to change the alarm weekday.  
 
 ### Change hour
 Long press the hour button to enter the change hour mode.  
@@ -42,7 +42,7 @@ To exit any mode, release all buttons and wait for the timeout to return to the 
 
 # Testing on windows
 Due to how this was programmed, the clock code can be tested on windows.  
-See the windows folder for a main file where you can test the different features with A, Z, E and R keys. 
+See the windows folder for a main file where you can test the different features with A, Z, E and R keys.  
 
 # Audio
 The alarm is a cheap mp3 player module with a 2W speaker.  
