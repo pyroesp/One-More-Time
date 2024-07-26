@@ -48,6 +48,8 @@ For all files, except the windows main file, you'll need to add the local includ
 Do not add it to the windows main or it will throw an error on the time stuff.  
 I think <time.h> and "time.h" are conflicting with each other.  
 
+Checkout the video of the PC clock here: https://github.com/pyroesp/One-More-Time/raw/main/video/clock_pc.mp4
+
 # Audio
 The alarm is a cheap mp3 player module with a 2W speaker.  
 You can find them on aliexpress.  
