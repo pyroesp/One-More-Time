@@ -67,19 +67,19 @@ void button_update(Button *b, uint16_t ms){
                 b->pressed_time += ms;                                          // increase timer
                 if (b->pressed_time >= (BUTTON_LONG_TIME+BUTTON_HOLD_TIME)){    // if timer reached long press time
                     b->pressed_time = 0;                                        // reset button timer
-                    b->status = BUTTON_LONG_PRESS;                              // next status is long press
+                    b->status = BUTTON_HOLD;                                    // next status is hold
                 }
                 break;
             case BUTTON_HOLD:                                           // if hold
                 b->pressed_time += ms;                                  // increase timer
                 if (b->pressed_time >= BUTTON_HOLD_TIME){               // if timer reached hold time
+                    b->pressed_time = 0;                                // reset timer
+                    b->to_super_speed++;                                // increase counter to super speed hold
                     b->status = BUTTON_SHORT_PRESS;                     // next status is short press
                 }
                 break;
             case BUTTON_SHORT_PRESS:                                    // if short press (only possible during hold)
-                b->pressed_time = 0;                                    // reset timer
-                b->to_super_speed++;                                    // increase counter to super speed hold
-                if (b->to_super_speed >= BUTTON_HOLD_TO_SUPER_SPEED){    // check if super speed can be enabled
+                if (b->to_super_speed >= BUTTON_HOLD_TO_SUPER_SPEED){   // check if super speed can be enabled
                     b->status = BUTTON_HOLD_SUPER_SPEED;                // next status is pressed hold super speed
                 } else {
                     b->status = BUTTON_HOLD;                            // next status is pressed hold
@@ -88,6 +88,7 @@ void button_update(Button *b, uint16_t ms){
             case BUTTON_HOLD_SUPER_SPEED:                               // if hold super speed
                 b->pressed_time += ms;                                  // increase timer
                 if (b->pressed_time >= BUTTON_SUPER_SPEED_TIME){        // if timer reached super speed time
+                    b->pressed_time = 0;                                // reset timer
                     b->status = BUTTON_SHORT_PRESS;                     // next status is short press
                 }
                 break;
