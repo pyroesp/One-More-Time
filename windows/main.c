@@ -79,7 +79,6 @@ int main(int argc, char* argv[]){
 
         printf("mode timeout: %4i\n", c.change_mode_time);
         printf("blink timeout: %4i\n", c.blink_time);
-        printf("date offset: %2i\n", ((c.change_mode_time + 1) / 600) % 3);
 
 
         if (GetAsyncKeyState('A') & 0x8000){ // press a for alarm
